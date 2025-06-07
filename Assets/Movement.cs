@@ -58,7 +58,11 @@ public class Movement : MonoBehaviour
         // Try to keep body upright
         // TODO: fix upright correction to work also without rotating player manually
         Quaternion characterCurrent = transform.rotation;
-        Quaternion upQ = Quaternion.LookRotation(transform.TransformDirection(Vector3.forward), Vector3.up);
+        Vector3 forwards = transform.TransformDirection(Vector3.forward);
+        // Y is not considered for forwards vector (shouldn't look down or up), only xz plane matters
+        forwards[1] = 0;
+
+        Quaternion upQ = Quaternion.LookRotation(forwards, Vector3.up);
         Quaternion toGoal;
         if (Quaternion.Dot(upQ, characterCurrent) < 0)
         {
@@ -73,6 +77,7 @@ public class Movement : MonoBehaviour
         float rotDegrees;
         toGoal.ToAngleAxis(out rotDegrees, out rotAxis);
         float rotRadians = rotDegrees * Mathf.Deg2Rad;
+        Debug.LogFormat("rotDegrees {0}", rotDegrees);
 
         Body.AddTorque(rotAxis * (rotRadians * UprightSpringStrength) - Body.angularVelocity * UprightSpringDamper );
 
