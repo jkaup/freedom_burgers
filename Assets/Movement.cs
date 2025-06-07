@@ -38,10 +38,19 @@ public class Movement : MonoBehaviour
             Body.AddForce(rayDir * coastSpringForce);
         }
 
-        // Horizontal input
-        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        // Forwards/backwards input
+        Vector3 move = transform.TransformDirection(Vector3.forward) * Input.GetAxis("Vertical");
         move = Vector3.ClampMagnitude(move, 1f); // Optional: prevents faster diagonal movement
+        Body.AddForce(move);
 
-        Body.AddForce(move * 1f);
+        // Rotation input
+        Vector3 rotation = transform.TransformDirection(Vector3.up) * Input.GetAxis("Horizontal") * 0.01f;
+        Body.AddTorque(rotation, ForceMode.Impulse);
+
+        // TODO: Keep body upright
+
+        // TODO: slow down forces when letting go of input
+
+        // TODO: make coasting less springy
     }
 }
