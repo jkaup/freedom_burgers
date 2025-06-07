@@ -52,6 +52,7 @@ public class Movement : MonoBehaviour
         // TODO: slow down forces when letting go of input
         // "Friction"
 
+        // TODO: wobble the body when turning (turn/curve in the other directino)
 
         // TODO: make coasting less springy
     }

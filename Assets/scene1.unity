@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 0.1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
@@ -508,7 +508,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveSpeed: 7
   CoastHeight: 2
-  CoastSpringStrength: 4
+  CoastSpringStrength: 6
   RotationStrength: 1.2
 --- !u!136 &2114389064
 CapsuleCollider:
@@ -560,7 +560,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 1
-  m_Color: {r: 0.99211025, g: 0.8392157, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.9174818, b: 0.7688679, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
