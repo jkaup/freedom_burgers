@@ -4,14 +4,14 @@ public class Movement : MonoBehaviour
 {
 
     public static float RAYCAST_MAX_DIST = 1000.0f;
+    public float MoveSpeed;
     public float CoastHeight;
     public float CoastSpringStrength;
+    public float RotationStrength;
     Rigidbody Body;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        CoastHeight = 2.0f;
-        CoastSpringStrength = 9.82f;
         Body = gameObject.GetComponent<Rigidbody>();
     }
 
@@ -41,15 +41,17 @@ public class Movement : MonoBehaviour
         // Forwards/backwards input
         Vector3 move = transform.TransformDirection(Vector3.forward) * Input.GetAxis("Vertical");
         move = Vector3.ClampMagnitude(move, 1f); // Optional: prevents faster diagonal movement
-        Body.AddForce(move);
+        Body.AddForce(move * MoveSpeed);
 
         // Rotation input
         Vector3 rotation = transform.TransformDirection(Vector3.up) * Input.GetAxis("Horizontal") * 0.01f;
-        Body.AddTorque(rotation, ForceMode.Impulse);
+        Body.AddTorque(rotation * RotationStrength, ForceMode.Impulse);
 
         // TODO: Keep body upright
 
         // TODO: slow down forces when letting go of input
+        // "Friction"
+
 
         // TODO: make coasting less springy
     }
