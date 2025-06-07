@@ -15,6 +15,11 @@ public class Movement : MonoBehaviour
         Body = gameObject.GetComponent<Rigidbody>();
     }
 
+    static Quaternion Multiply(Quaternion input, float scalar)
+    {
+        return new Quaternion(input.x * scalar, input.y * scalar, input.z * scalar, input.w * scalar);
+    }
+    
     // Update is called once per frame
     void Update()
     {
@@ -47,7 +52,27 @@ public class Movement : MonoBehaviour
         Vector3 rotation = transform.TransformDirection(Vector3.up) * Input.GetAxis("Horizontal") * 0.01f;
         Body.AddTorque(rotation * RotationStrength, ForceMode.Impulse);
 
-        // TODO: Keep body upright
+        // Try to keep body upright
+        Quaternion characterCurrent = transform.rotation;
+        Quaternion upQ = Quaternion.LookRotation(transform.TransformDirection(Vector3.forward), Vector3.up);
+        Quaternion toGoal;
+        if (Quaternion.Dot(upQ, characterCurrent) < 0)
+        {
+            toGoal = upQ * Quaternion.Inverse(Multiply(characterCurrent, -1));
+        }
+        else
+        {
+            toGoal = upQ * Quaternion.Inverse(characterCurrent);
+        }
+
+        Vector3 rotAxis;
+        float rotDegrees;
+        toGoal.ToAngleAxis(out rotDegrees, out rotAxis);
+        float rotRadians = rotDegrees * Mathf.Deg2Rad;
+
+        float UprightSpringStrength = 1.0f;
+        float UprightSpringDamper = 0.5f;
+        Body.AddTorque(rotAxis * (rotRadians * UprightSpringStrength) - Body.angularVelocity * UprightSpringDamper );
 
         // TODO: slow down forces when letting go of input
         // "Friction"
