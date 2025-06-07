@@ -2,10 +2,17 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+
+    public static float RAYCAST_MAX_DIST = 1000.0f;
+    public float CoastHeight;
+    public float CoastSpringStrength;
+    Rigidbody Body;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        CoastHeight = 2.0f;
+        CoastSpringStrength = 9.82f;
+        Body = gameObject.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -16,23 +23,25 @@ public class Movement : MonoBehaviour
         RaycastHit hit;
         Vector3 origin = transform.position;
         Vector3 rayDir = Vector3.down;
-        bool rayHit = Physics.Raycast(origin, rayDir, out hit, Mathf.Infinity);
+        bool rayHit = Physics.Raycast(origin, rayDir, out hit, RAYCAST_MAX_DIST);
 
         if (rayHit)
         {
             // Draw line from origin to object
             Debug.DrawLine(origin, origin + hit.distance * rayDir, Color.red);
-        }
 
-        //Debug.DrawLine(origin, origin + 20 * rayDir, Color.green);
-        Vector3 origin2 = new Vector3(0f, 10f, 0f);
-        Debug.DrawLine(origin2, origin2 + 20 * rayDir, Color.black);
+            // Force up - keep at height
+            float y = hit.distance - CoastHeight;
+            float coastSpringForce = y * CoastSpringStrength;
+
+            //Debug.LogFormat("{0}, {1}, {2}, {3}", y, coastSpringForce, CoastSpringStrength, CoastHeight);
+            Body.AddForce(rayDir * coastSpringForce);
+        }
 
         // Horizontal input
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         move = Vector3.ClampMagnitude(move, 1f); // Optional: prevents faster diagonal movement
 
-        Rigidbody body = gameObject.GetComponent<Rigidbody>();
-        body.AddForce(move * 1f);
+        Body.AddForce(move * 1f);
     }
 }
