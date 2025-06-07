@@ -8,6 +8,8 @@ public class Movement : MonoBehaviour
     public float CoastHeight;
     public float CoastSpringStrength;
     public float RotationStrength;
+    public float UprightSpringStrength;
+    public float UprightSpringDamper;
     Rigidbody Body;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,7 +21,7 @@ public class Movement : MonoBehaviour
     {
         return new Quaternion(input.x * scalar, input.y * scalar, input.z * scalar, input.w * scalar);
     }
-    
+
     // Update is called once per frame
     void Update()
     {
@@ -70,8 +72,6 @@ public class Movement : MonoBehaviour
         toGoal.ToAngleAxis(out rotDegrees, out rotAxis);
         float rotRadians = rotDegrees * Mathf.Deg2Rad;
 
-        float UprightSpringStrength = 1.0f;
-        float UprightSpringDamper = 0.5f;
         Body.AddTorque(rotAxis * (rotRadians * UprightSpringStrength) - Body.angularVelocity * UprightSpringDamper );
 
         // TODO: slow down forces when letting go of input
