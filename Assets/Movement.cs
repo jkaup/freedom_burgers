@@ -45,6 +45,7 @@ public class Movement : MonoBehaviour
             Body.AddForce(rayDir * coastSpringForce);
         }
 
+        // TODO: fix so that character cannot fly
         // Forwards/backwards input
         Vector3 move = transform.TransformDirection(Vector3.forward) * Input.GetAxis("Vertical");
         move = Vector3.ClampMagnitude(move, 1f); // Optional: prevents faster diagonal movement
@@ -55,6 +56,7 @@ public class Movement : MonoBehaviour
         Body.AddTorque(rotation * RotationStrength, ForceMode.Impulse);
 
         // Try to keep body upright
+        // TODO: fix upright correction to work also without rotating player manually
         Quaternion characterCurrent = transform.rotation;
         Quaternion upQ = Quaternion.LookRotation(transform.TransformDirection(Vector3.forward), Vector3.up);
         Quaternion toGoal;
