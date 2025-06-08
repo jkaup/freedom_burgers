@@ -86,5 +86,7 @@ public class Movement : MonoBehaviour
 
 
         // TODO: Lock camera player and not wobble (stay horizontal) when moving
+
+        // TODO: adjust player rotation to align with slopes - should tilt backwards a bit when climbing a slope
     }
 }
