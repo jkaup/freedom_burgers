@@ -615,8 +615,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 7
-  CoastHeight: 2
-  CoastSpringStrength: 6
+  CoastHeight: 2.5
+  CoastSpringStrength: 5.5
   RotationStrength: 4
   UprightSpringStrength: 5
   UprightSpringDamper: 0.5
