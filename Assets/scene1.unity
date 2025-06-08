@@ -534,7 +534,7 @@ Transform:
   m_GameObject: {fileID: 729691120}
   serializedVersion: 2
   m_LocalRotation: {x: 0.1521234, y: 0, z: 0, w: 0.98836154}
-  m_LocalPosition: {x: 1.62, y: 5.007058, z: -12.08717}
+  m_LocalPosition: {x: 1.62, y: 3.2028232, z: -6.3648677}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -740,7 +740,7 @@ Transform:
   m_GameObject: {fileID: 1416389616}
   serializedVersion: 2
   m_LocalRotation: {x: 0.1521234, y: 0, z: 0, w: 0.98836154}
-  m_LocalPosition: {x: 1.62, y: 5.007058, z: -12.08717}
+  m_LocalPosition: {x: 1.62, y: 3.2028232, z: -6.3648677}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -766,7 +766,7 @@ MonoBehaviour:
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
   OrbitStyle: 0
-  Radius: 10
+  Radius: 4
   Orbits:
     Top:
       Radius: 2
@@ -884,10 +884,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2053754851903436a89a9eb13f54ae12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 7
+  MoveSpeed: 4
   CoastHeight: 2.5
-  CoastSpringStrength: 5.5
-  RotationStrength: 3
+  CoastSpringStrength: 7
+  RotationStrength: 2
   UprightSpringStrength: 5
   UprightSpringDamper: 0.5
   TurnRotationStrength: 0.1
