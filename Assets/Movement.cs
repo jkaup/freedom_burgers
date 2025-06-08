@@ -34,6 +34,7 @@ public class Movement : MonoBehaviour
         Vector3 rayDir = Vector3.down;
         bool rayHit = Physics.Raycast(origin, rayDir, out hit, RAYCAST_MAX_DIST);
 
+        // TODO: Fix floating to not make sudden jumps
         if (rayHit)
         {
             // Draw line from origin to object
@@ -85,7 +86,6 @@ public class Movement : MonoBehaviour
         Vector3 turnAxis = transform.TransformDirection(Vector3.forward);
         Body.AddTorque(turnAxis * Body.angularVelocity[1] * TurnRotationStrength);
 
-        // TODO: Lock camera player and not wobble (stay horizontal) when moving
 
         // TODO: adjust player rotation to align with slopes - should tilt backwards a bit when climbing a slope
     }
