@@ -41,7 +41,6 @@ public class Movement : MonoBehaviour
             float y = hit.distance - CoastHeight;
             float coastSpringForce = y * CoastSpringStrength;
 
-            //Debug.LogFormat("{0}, {1}, {2}, {3}", y, coastSpringForce, CoastSpringStrength, CoastHeight);
             Body.AddForce(rayDir * coastSpringForce);
         }
 
@@ -80,11 +79,6 @@ public class Movement : MonoBehaviour
 
         Body.AddTorque(rotAxis * (rotRadians * UprightSpringStrength) - Body.angularVelocity * UprightSpringDamper );
 
-        // TODO: slow down forces when letting go of input
-        // "Friction"
-
         // TODO: wobble the body when turning (turn/curve in the other directino)
-
-        // TODO: make coasting less springy
     }
 }
