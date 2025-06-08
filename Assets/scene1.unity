@@ -743,10 +743,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetOffset: {x: 0, y: 0, z: 0}
   TrackerSettings:
-    BindingMode: 3
+    BindingMode: 2
     PositionDamping: {x: 1, y: 1, z: 1}
     AngularDampingMode: 0
-    RotationDamping: {x: 1, y: 1, z: 1}
+    RotationDamping: {x: 1, y: 5, z: 1}
     QuaternionDamping: 1
   OrbitStyle: 0
   Radius: 4
@@ -873,7 +873,7 @@ MonoBehaviour:
   RotationStrength: 2
   UprightSpringStrength: 5
   UprightSpringDamper: 0.5
-  TurnRotationStrength: 0.1
+  TurnRotationStrength: 0.4
 --- !u!136 &2114389064
 CapsuleCollider:
   m_ObjectHideFlags: 0
