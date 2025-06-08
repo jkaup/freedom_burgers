@@ -77,7 +77,6 @@ public class Movement : MonoBehaviour
         float rotDegrees;
         toGoal.ToAngleAxis(out rotDegrees, out rotAxis);
         float rotRadians = rotDegrees * Mathf.Deg2Rad;
-        Debug.LogFormat("rotDegrees {0}", rotDegrees);
 
         Body.AddTorque(rotAxis * (rotRadians * UprightSpringStrength) - Body.angularVelocity * UprightSpringDamper );
 
