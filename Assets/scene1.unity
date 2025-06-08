@@ -620,6 +620,7 @@ MonoBehaviour:
   RotationStrength: 4
   UprightSpringStrength: 5
   UprightSpringDamper: 0.5
+  TurnRotationStrength: 0.5
 --- !u!136 &2114389064
 CapsuleCollider:
   m_ObjectHideFlags: 0

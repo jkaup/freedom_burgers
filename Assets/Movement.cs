@@ -10,6 +10,7 @@ public class Movement : MonoBehaviour
     public float RotationStrength;
     public float UprightSpringStrength;
     public float UprightSpringDamper;
+    public float TurnRotationStrength;
     Rigidbody Body;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -77,8 +78,10 @@ public class Movement : MonoBehaviour
         toGoal.ToAngleAxis(out rotDegrees, out rotAxis);
         float rotRadians = rotDegrees * Mathf.Deg2Rad;
 
-        Body.AddTorque(rotAxis * (rotRadians * UprightSpringStrength) - Body.angularVelocity * UprightSpringDamper );
+        Body.AddTorque(rotAxis * (rotRadians * UprightSpringStrength) - Body.angularVelocity * UprightSpringDamper);
 
-        // TODO: wobble the body when turning (turn/curve in the other directino)
+        // Wobble the body when turning (turn/curve in the other direction)
+        Vector3 turnAxis = transform.TransformDirection(Vector3.forward);
+        Body.AddTorque(turnAxis * Body.angularVelocity[1] * TurnRotationStrength);
     }
 }
