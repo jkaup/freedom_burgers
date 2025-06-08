@@ -457,6 +457,7 @@ GameObject:
   m_Component:
   - component: {fileID: 547003449}
   - component: {fileID: 547003452}
+  - component: {fileID: 547003454}
   - component: {fileID: 547003453}
   - component: {fileID: 547003450}
   m_Layer: 0
@@ -474,12 +475,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 547003448}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.07088902, y: -1.7510972e-15, z: -1.0043867e-16, w: 0.9974842}
-  m_LocalPosition: {x: 0, y: 3, z: -7}
+  m_LocalRotation: {x: 0.056686155, y: -0.03558878, z: 0.002021929, w: 0.9977555}
+  m_LocalPosition: {x: 2.12, y: 4.8, z: -9.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2114389062}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &547003450
 MonoBehaviour:
@@ -519,7 +520,7 @@ MonoBehaviour:
   m_StreamingVersion: 20241001
   m_LegacyPriority: 0
   Target:
-    TrackingTarget: {fileID: 0}
+    TrackingTarget: {fileID: 2114389062}
     LookAtTarget: {fileID: 2114389062}
     CustomLookAtTarget: 1
   Lens:
@@ -571,6 +572,32 @@ MonoBehaviour:
     Time: 0.16
     Smoothing: 12.6
     IgnoreY: 0
+--- !u!114 &547003454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547003448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 625c14eee3ad46c99df7c7c891ef668a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damping: {x: 0.1, y: 5, z: 0.3}
+  ShoulderOffset: {x: 0.5, y: 2, z: -5}
+  VerticalArmLength: 0.8
+  CameraSide: 1
+  CameraDistance: 2
+  AvoidObstacles:
+    Enabled: 0
+    CollisionFilter:
+      serializedVersion: 2
+      m_Bits: 1
+    IgnoreTag: 
+    CameraRadius: 0.2
+    DampingIntoCollision: 0
+    DampingFromCollision: 0.5
 --- !u!1 &729691120
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,12 +684,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 729691120}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.07088902, y: -1.7671603e-15, z: 1.2558823e-16, w: 0.9974842}
-  m_LocalPosition: {x: 0, y: 3, z: -7}
+  m_LocalRotation: {x: 0.056686155, y: -0.03558878, z: 0.002021929, w: 0.9977555}
+  m_LocalPosition: {x: 2.12, y: 4.8, z: -9.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2114389062}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 10.899, y: 0, z: 0}
 --- !u!114 &729691124
 MonoBehaviour:
@@ -755,8 +782,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 547003449}
-  - {fileID: 729691123}
   - {fileID: 2145235257}
   - {fileID: 447076742}
   m_Father: {fileID: 0}
@@ -1014,5 +1039,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 2141090523}
   - {fileID: 280750448}
+  - {fileID: 547003449}
+  - {fileID: 729691123}
   - {fileID: 2114389062}
   - {fileID: 19706531}
