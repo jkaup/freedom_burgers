@@ -15,6 +15,7 @@ public class Movement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Cursor.visible = false;
         Body = gameObject.GetComponent<Rigidbody>();
     }
 
@@ -83,7 +84,6 @@ public class Movement : MonoBehaviour
         // Wobble the body when turning (turn/curve in the other direction)
         Vector3 turnAxis = transform.TransformDirection(Vector3.forward);
         Body.AddTorque(turnAxis * Body.angularVelocity[1] * TurnRotationStrength);
-
 
         // TODO: Lock camera player and not wobble (stay horizontal) when moving
 
