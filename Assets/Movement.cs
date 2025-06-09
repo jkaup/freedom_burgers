@@ -88,5 +88,7 @@ public class Movement : MonoBehaviour
 
 
         // TODO: adjust player rotation to align with slopes - should tilt backwards a bit when climbing a slope
+
+        // TODO: add obstacles and make play area bigger with walls
     }
 }
