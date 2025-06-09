@@ -34,7 +34,6 @@ public class Movement : MonoBehaviour
         Vector3 rayDir = Vector3.down;
         bool rayHit = Physics.Raycast(origin, rayDir, out hit, RAYCAST_MAX_DIST);
 
-        // TODO: Fix floating to not make sudden jumps
         if (rayHit)
         {
             // Draw line from origin to object
@@ -85,7 +84,6 @@ public class Movement : MonoBehaviour
         // Wobble the body when turning (turn/curve in the other direction)
         Vector3 turnAxis = transform.TransformDirection(Vector3.forward);
         Body.AddTorque(turnAxis * Body.angularVelocity[1] * TurnRotationStrength);
-
 
         // TODO: adjust player rotation to align with slopes - should tilt backwards a bit when climbing a slope
 
