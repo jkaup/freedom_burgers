@@ -1,0 +1,3 @@
+[submodule "freedom_burgers_assets"]
+	path = Assets
+	url = git@github.com:jkaup/freedom_burgers_assets.git
